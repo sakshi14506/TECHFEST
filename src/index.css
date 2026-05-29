@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-share: "Share Tech Mono", monospace;
+
+  /* Elegant Dark Cyber Colors */
+  --color-cyber-blue: #06b6d4; /* cyan-500 */
+  --color-cyber-pink: #ec4899; /* pink-500 */
+  --color-cyber-purple: #a855f7; /* purple-500 */
+  --color-cyber-cyan: #22d3ee; /* cyan-400 */
+  --color-bg-dark: #050505;
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Base resets & styles */
+html {
+  scroll-behavior: smooth;
+  background-color: #050505;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #050505;
+}
+
+/* Glowing text helpers */
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.4), 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.text-glow-pink {
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.4), 0 0 20px rgba(236, 72, 153, 0.15);
+}
+
+.border-glow-blue {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* Dot overlay background */
+.dot-grid {
+  background-size: 20px 20px;
+  background-image: radial-gradient(#14b8a6 0.5px, transparent 0.5px);
+}
+
+/* Animated Grid Background */
+.digital-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+}
+
+/* Cyber holographic grid perspective */
+.cyber-perspective {
+  perspective: 1000px;
+}
+
+/* Scanlines overlay */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+.scanlines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(5, 5, 5, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes scanline-roll {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanline-roll-active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(6, 182, 212, 0.05),
+    transparent
+  );
+  animation: scanline-roll 10s linear infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "Techfest IIT Bombay",
+  "description": "The official cybernetic portal of Asia's largest science and technology festival, set in the year 2077.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
